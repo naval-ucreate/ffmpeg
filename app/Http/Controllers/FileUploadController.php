@@ -23,14 +23,13 @@ class FileUploadController extends Controller
         return $data;
     }
     public function fileUpload(Request $request){
-       $this->validate($request, [
+        $this->validate($request, [
             'file_upload' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);     
         $image              = $request->file('file_upload');
         $parms['extension'] = $image->getClientOriginalExtension();
         $parms['name']      = time().'.'.$parms['extension'];
         $destination_path   = $this->path;
-
         if($image->move($destination_path, $parms['name'])){
             $parms['scale_size']    = $request->input('scale_size');
             $image_data             = $this->scaleImage($parms);
