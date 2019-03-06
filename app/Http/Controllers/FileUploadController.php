@@ -13,8 +13,7 @@ class FileUploadController extends Controller
     public function index(){
         return view('fileupload');
     }
-     function scaleImage(Array $parms)
-    {        
+     function scaleImage(Array $parms){        
         $input          =   $this->path."/".$parms['name'];
         $output_image   =   time().'_'.$parms['scale_size'].'.'.$parms['extension'];
         $output         =   $this->path."/".$output_image;
@@ -24,7 +23,6 @@ class FileUploadController extends Controller
         return $data;
     }
     public function fileUpload(Request $request){
-
        $this->validate($request, [
             'file_upload' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);     
