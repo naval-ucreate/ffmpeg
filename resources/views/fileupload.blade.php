@@ -2,6 +2,16 @@
 <html>
 <body>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+<style>
+.form_style{
+    width: 400px;
+    text-align: center;
+    display: inline-block;
+    border: solid 1px;
+    padding: 39px;
+}
+
+</style>
 <div class="container">
 <div class="row">
         <div class="col-md-12 text-center">
@@ -45,7 +55,7 @@
         </div>
         @endif
 
-        <form action="{{ route('file_upload') }}" method="post" enctype="multipart/form-data">
+        <form action="{{ route('file_upload') }}" method="post" enctype="multipart/form-data" class="form_style">
         {{ csrf_field() }}
             <div class="form-group">
             <label for="Scale Size">Scale Size:</label>
