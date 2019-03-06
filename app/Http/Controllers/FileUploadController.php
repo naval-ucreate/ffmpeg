@@ -36,7 +36,7 @@ class FileUploadController extends Controller
         {
             $parms['scale_size']    = $request->input('scale_size');
             $image_data             = $this->scaleImage($parms);
-            return back()->with('success','Image Upload successful')->with( ['image_data' => $image_data] );
+            return back()->with('success','Image Scaled successfully')->with( ['image_data' => $image_data] );
         }
         return back()->with('error','There is some issue!');
     }
