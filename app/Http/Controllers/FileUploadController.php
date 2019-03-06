@@ -13,7 +13,7 @@ class FileUploadController extends Controller
     public function index(){
         return view('fileupload');
     }
-     function scaleImage(Array $parms){        
+    private function scaleImage(Array $parms){        
         $input          =   $this->path."/".$parms['name'];
         $output_image   =   time().'_'.$parms['scale_size'].'.'.$parms['extension'];
         $output         =   $this->path."/".$output_image;
@@ -29,9 +29,9 @@ class FileUploadController extends Controller
         $image              = $request->file('file_upload');
         $parms['extension'] = $image->getClientOriginalExtension();
         $parms['name']      = time().'.'.$image->getClientOriginalExtension();
-        $destinationPath    = $this->path;
-        if($image->move($destinationPath, $parms['name']))
-        {
+        $destination_path    = $this->path;
+
+        if($image->move($destination_path, $parms['name'])){
             $parms['scale_size']    = $request->input('scale_size');
             $image_data             = $this->scaleImage($parms);
             return back()->with('success','Image Scaled successfully')->with( ['image_data' => $image_data] );
