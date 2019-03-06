@@ -28,8 +28,8 @@ class FileUploadController extends Controller
         ]);     
         $image              = $request->file('file_upload');
         $parms['extension'] = $image->getClientOriginalExtension();
-        $parms['name']      = time().'.'.$image->getClientOriginalExtension();
-        $destination_path    = $this->path;
+        $parms['name']      = time().'.'.$parms['extension'];
+        $destination_path   = $this->path;
 
         if($image->move($destination_path, $parms['name'])){
             $parms['scale_size']    = $request->input('scale_size');
