@@ -13,8 +13,10 @@ class ScaleImage extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
+    
+
 
     /**
      * Get the validation rules that apply to the request.
@@ -23,8 +25,10 @@ class ScaleImage extends FormRequest
      */
     public function rules()
     {
-        return [
-            'file_upload' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        ];
+        return ['file_upload' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'];
+    }
+    public function messages()
+    {
+        return ['file_upload.required'=>"Please upload file first"];
     }
 }
