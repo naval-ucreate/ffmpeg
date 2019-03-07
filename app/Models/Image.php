@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 class Image extends Model
 {
     //
-    protected $fillable = ['scale_size','name'];
+    protected $fillable = ['scale_size','name','scale_image_name'];
 }

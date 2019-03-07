@@ -23,7 +23,7 @@ class FileUpload
         $output_image           =   time().'_'.$parms['scale_size'].".".$extension;
         $parms['output']        =   $this->path."/".$output_image;
         $this->scaleImage($parms);
-        return true;
+        return $output_image;
     }
 
 }

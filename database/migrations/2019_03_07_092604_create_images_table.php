@@ -17,6 +17,7 @@ class CreateImagesTable extends Migration
             $table->increments('id');
             $table->integer('scale_size');
             $table->string('name',50);
+            $table->string('scale_image_name',50)->nullable();
             $table->timestamps();
         });
     }

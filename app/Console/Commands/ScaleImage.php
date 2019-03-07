@@ -38,7 +38,14 @@ class ScaleImage extends Command
      */
     public function handle(Image $image,FileUpload $scale_image)
     {
-        $image_data  =  $image->latest()->first();
-        $scale_image->createScaledImage($image_data);
+        $image_data  =  $image->latest()->count();
+        if($image_data>0){
+            $image_data  =  $image->latest()->first();
+            $image_data->scale_image_name  =   $scale_image->createScaledImage($image_data);
+            $image_data->save();
+            $this->info('image scaled successfully');
+            exit;
+        }
+        $this->info('There is some error');
     }
 }
