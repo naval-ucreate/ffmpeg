@@ -20,3 +20,6 @@ Auth::routes(['verify'=>'email']);
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/file-upload', 'FileUploadController@index')->name('file_upload_view');
 Route::post('/file-upload', 'FileUploadController@fileUpload')->name('file_upload');
+
+
+Route::get('/check-image', 'FileUploadController@checkImageScale')->name('check_image_scale');
