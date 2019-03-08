@@ -23,7 +23,7 @@ class S3FileUpload
     private function createTempDir(){
         if(!is_dir($this->path))
         {
-            mkdir($this->path,0775,true);           
+            mkdir($this->path,0777,true);           
         }
     }
     public function uploadInS3($name,$file){
