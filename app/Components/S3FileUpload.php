@@ -15,8 +15,8 @@ class S3FileUpload
         // dd($out);
         return true;
     }
-    private function getExtension($imageUrl){
-        $info       =   pathinfo($imageUrl);
+    private function getExtension($image_url){
+        $info       =   pathinfo($image_url);
         $extension  =   $info['extension'];
         return $extension;
     }
