@@ -15,6 +15,7 @@ class Kernel extends ConsoleKernel
     protected $commands = [
         //
         'App\Console\Commands\ScaleImage',
+        'App\Console\Commands\GetUserInFile',
     ];
 
     /**
@@ -27,7 +28,8 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')
         //          ->hourly();
-        $schedule->command('scale:image')->everyMinute();
+        //$schedule->command('scale:image')->everyMinute();
+        $schedule->command('get:user')->everyMinute();
     }
 
     /**

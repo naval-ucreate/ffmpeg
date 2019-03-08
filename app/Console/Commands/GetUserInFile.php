@@ -1,23 +1,24 @@
 <?php
+
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
-use  App\Jobs\ScaleUserImage;
-class ScaleImage extends Command
+use App\Jobs\ListUser;
+class GetUserInFile extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'scale:image';
-    var $path  = "";
+    protected $signature = 'get:user';
+
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'To scale image';
+    protected $description = 'Get list of user in txt file';
 
     /**
      * Create a new command instance.
@@ -27,7 +28,6 @@ class ScaleImage extends Command
     public function __construct()
     {
         parent::__construct();
-        $this->path = public_path('/images');
     }
 
     /**
@@ -35,8 +35,8 @@ class ScaleImage extends Command
      *
      * @return mixed
      */
-    public function handle(ScaleUserImage $scale_user_image)
+    public function handle(ListUser $list_user)
     {
-        $scale_user_image->dispatch();
+        $list_user->dispatch();
     }
 }

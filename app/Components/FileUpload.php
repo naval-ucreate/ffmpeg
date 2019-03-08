@@ -1,5 +1,6 @@
 <?php
 namespace App\Components;
+use Illuminate\Support\Facades\Storage;
 class FileUpload
 {
     public function __construct(){
@@ -15,6 +16,10 @@ class FileUpload
         exec('ffmpeg -i '.$parms['input'].' -vf scale='.$parms['scale_size'].':-1 '.$parms['output']);
         return true;
     }
+    public function uploadInS3(){
+        Storage::disk('s3')->put($filePath, file_get_contents($file),'public');
+        return true;
+    }
 
     public function createScaledImage($image_data){
         $parms['input']         =   $this->path."/".$image_data->name;
@@ -25,5 +30,5 @@ class FileUpload
         $this->scaleImage($parms);
         return $output_image;
     }
-
+   
 }

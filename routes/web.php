@@ -23,3 +23,8 @@ Route::post('/file-upload', 'FileUploadController@fileUpload')->name('file_uploa
 
 
 Route::get('/check-image', 'FileUploadController@checkImageScale')->name('check_image_scale');
+
+
+
+
+Route::get('/list-user', 'UserController@ListUser')->name('list_user');
